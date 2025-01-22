@@ -1,0 +1,5 @@
+# uv generated files
+.python-version
+hello.py
+pyproject.toml
+uv.lock
