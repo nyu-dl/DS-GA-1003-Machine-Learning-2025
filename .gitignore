@@ -5,4 +5,4 @@ pyproject.toml
 uv.lock
 
 # lab2
-lab2/secret/
+# lab2/secret/
