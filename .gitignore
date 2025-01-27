@@ -3,3 +3,6 @@
 hello.py
 pyproject.toml
 uv.lock
+
+# lab2
+lab2/secret/
