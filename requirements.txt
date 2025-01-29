@@ -1,5 +1,4 @@
 numpy
 matplotlib
 torch==2.4.0; python_version >= "3.8" and python_version < "3.13"
-sklearn
-
+scikit-learn
