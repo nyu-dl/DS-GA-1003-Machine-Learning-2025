@@ -49,21 +49,6 @@ def data_for_chihuahua_muffin():
     return X, y
 
 
-# def data_for_svm_vs_logistic_regression():
-#     # Generate two clusters
-#     X_class_0 = np.array([[1, 2], [2, 1], [1.5, 1.5], [1.5, 2]])  # Cluster 0
-#     X_class_1 = np.array([[3, 4], [4, 3], [3.5, 3.5], [3.5, 4]])  # Cluster 1
-
-#     # Add overlap near the boundary
-#     X_overlap = np.array([[2.5, 2.5], [2.6, 2.4]])
-#     y_overlap = np.array([0, 1])  # One point from each class
-
-#     # Combine the datasets
-#     X = np.vstack((X_class_0, X_overlap, X_class_1))
-#     y = np.hstack(([0] * len(X_class_0), [1] * len(X_class_1), y_overlap))
-#     return X, y
-
-
 def data_for_svm_vs_logistic_regression(n_samples=1000, random_state=42):
     np.random.seed(random_state)
 
@@ -85,8 +70,6 @@ def data_for_svm_vs_logistic_regression(n_samples=1000, random_state=42):
     flip_mask = np.random.rand(n_samples) < flip_prob * 0.3  # Max 30% flip chance
 
     # Introduce probabilistic flipping of labels near the boundary
-    # probabilities = np.abs(X[:, 0] - X[:, 1]) / 2  # Use distance from diagonal as probability
-    # flip_mask = np.random.rand(n_samples) < probabilities  # Flip labels based on probability
     y[flip_mask] = 1 - y[flip_mask]  # Flip 0 to 1 or 1 to 0
 
     return X, y
@@ -126,9 +109,6 @@ else:
     y_ordered = y_random
 
 # Save as pandas dataframe
-# if "chihuahua_muffin" in OPTION:
-#     # map binary labels to chihuahua and muffin
-#     y_ordered = np.array(["chihuahua" if label == 0 else "muffin" for label in y_ordered])
 df = pd.DataFrame(np.hstack([X_ordered, y_ordered.reshape(-1, 1)]), columns=["x1", "x2", "y"])
 if "chihuahua_muffin" in OPTION:
     df["label"] = df["y"].map({0: "chihuahua", 1: "muffin"})
