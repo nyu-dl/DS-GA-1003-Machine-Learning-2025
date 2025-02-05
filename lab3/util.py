@@ -12,7 +12,7 @@ def forward_pass(X, W1, b1, W2, b2):
     return p_hat.argmax(dim=1)  # Get class predictions
 
 
-def plot_decision_boundary(W1, b1, W2, b2, X, y, resolution=100):
+def plot_decision_boundary(W1, b1, W2, b2, X, y, split="Train", resolution=100):
     """
     Plots the decision boundary using the provided model weights.
 
@@ -45,7 +45,7 @@ def plot_decision_boundary(W1, b1, W2, b2, X, y, resolution=100):
     plt.scatter(X[:, 0], X[:, 1], c=y, edgecolors="k", cmap=plt.cm.coolwarm)
     plt.xlabel("Feature 1")
     plt.ylabel("Feature 2")
-    plt.title("Decision Boundary of MLP")
+    plt.title(f"{split} Split: Decision Boundary of MLP")
     plt.show()
 
 
