@@ -10,3 +10,6 @@ uv.lock
 
 # Mac files
 .DS_Store
+
+# python files
+**pycache**
